@@ -159,7 +159,7 @@ export type Project = {
   features: string[];
   tech: string[];
   github?: string;
-  ui: "jobs" | "voice";
+  ui: "jobs" | "voice" | "refound";
 };
 
 export const PROJECTS: Project[] = [
@@ -198,6 +198,32 @@ export const PROJECTS: Project[] = [
     ],
     tech: ["Python", "Flask", "PyTorch", "XTTS-v2", "MySQL"],
     ui: "voice",
+  },
+   {
+    id: "refound",
+    index: "03",
+    title: "Refound",
+    kicker: "MERN Stack · Lost & Found Platform",
+    description:
+      "Developing a full-stack lost and found management platform that helps users report lost or found belongings, discover potential matches, and reconnect people with their missing items. Includes image uploads, intelligent matching, notifications, and admin verification.",
+    features: [
+      "User authentication and authorization",
+      "Lost and found item reporting",
+      "Image uploads and item management",
+      "Search and category-based filtering",
+      "Smart matching of lost and found reports",
+      "Admin verification and claim management",
+    ],
+    tech: [
+      "React.js",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "Tailwind CSS",
+      "Redux",
+      "Axios",
+    ],
+    ui: "refound",
   },
 ];
 

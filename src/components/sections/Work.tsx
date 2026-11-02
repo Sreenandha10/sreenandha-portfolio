@@ -71,6 +71,148 @@ function VoiceUI() {
   );
 }
 
+function RefoundUI() {
+  const items = [
+    { name: "Black Backpack", category: "Accessories", status: "Lost", date: "Today" },
+    { name: "Wireless Earbuds", category: "Electronics", status: "Found", date: "Yesterday" },
+    { name: "Student ID Card", category: "Personal", status: "Lost", date: "Oct 28" },
+  ];
+
+  return (
+    <div className="ui ui-refound" aria-hidden="true">
+      <div className="ui-bar">
+        <i /><i /><i />
+        <span className="mono">Refound · Item dashboard</span>
+      </div>
+
+      <div style={{ padding: 16 }}>
+        <div style={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          marginBottom: 18
+        }}>
+          <div>
+            <span className="mono">Welcome back</span>
+            <h3 style={{ fontSize: 20, fontWeight: 700, marginTop: 5 }}>
+              Find what matters.
+            </h3>
+          </div>
+          <div style={{
+            width: 34,
+            height: 34,
+            borderRadius: "50%",
+            background: "var(--soft)",
+            display: "grid",
+            placeItems: "center",
+            fontWeight: 700,
+            fontSize: 12
+          }}>
+            SS
+          </div>
+        </div>
+
+        <div style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(3, 1fr)",
+          gap: 7,
+          marginBottom: 18
+        }}>
+          {[
+            { label: "Lost items", value: "12" },
+            { label: "Found items", value: "08" },
+            { label: "Matches", value: "05" },
+          ].map((stat) => (
+            <div key={stat.label} style={{
+              padding: "12px 8px",
+              borderRadius: 10,
+              background: "var(--paper)",
+              boxShadow: "inset 0 0 0 1px var(--line)"
+            }}>
+              <strong style={{ display: "block", fontSize: 20 }}>
+                {stat.value}
+              </strong>
+              <span className="mono" style={{ fontSize: 8 }}>
+                {stat.label}
+              </span>
+            </div>
+          ))}
+        </div>
+
+        <div style={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          marginBottom: 10
+        }}>
+          <strong style={{ fontSize: 12 }}>Recent reports</strong>
+          <span className="mono">View all ↗</span>
+        </div>
+
+        <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+          {items.map((item) => (
+            <div key={item.name} style={{
+              display: "flex",
+              alignItems: "center",
+              gap: 10,
+              padding: 10,
+              borderRadius: 10,
+              boxShadow: "inset 0 0 0 1px var(--line)"
+            }}>
+              <div style={{
+                width: 34,
+                height: 34,
+                flexShrink: 0,
+                borderRadius: 8,
+                background: "var(--soft)",
+                display: "grid",
+                placeItems: "center",
+                fontSize: 15
+              }}>
+                {item.status === "Lost" ? "⌕" : "✓"}
+              </div>
+
+              <div style={{ flex: 1, minWidth: 0 }}>
+                <strong style={{ fontSize: 11, display: "block" }}>
+                  {item.name}
+                </strong>
+                <span className="mono" style={{ fontSize: 8 }}>
+                  {item.category} · {item.date}
+                </span>
+              </div>
+
+              <span style={{
+                fontSize: 9,
+                padding: "5px 8px",
+                borderRadius: 20,
+                background: "var(--paper)",
+                boxShadow: "inset 0 0 0 1px var(--line)"
+              }}>
+                {item.status}
+              </span>
+            </div>
+          ))}
+        </div>
+
+        <div style={{
+          marginTop: 12,
+          padding: 11,
+          borderRadius: 10,
+          background: "var(--ink)",
+          color: "white",
+          fontSize: 11,
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center"
+        }}>
+          <span>Report a missing item</span>
+          <strong>+</strong>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function Panel({ p, open, onOpen, n }: { p: Project; open: boolean; onOpen: () => void; n: number }) {
   return (
     <article
@@ -113,7 +255,15 @@ function Panel({ p, open, onOpen, n }: { p: Project; open: boolean; onOpen: () =
           )}
         </div>
         <div className="wk-visual">
-          <div className="wk-ui">{p.ui === "jobs" ? <JobsUI /> : <VoiceUI />}</div>
+          <div className="wk-ui">
+            {p.ui === "jobs" ? (
+              <JobsUI />
+            ) : p.ui === "voice" ? (
+              <VoiceUI />
+            ) : (
+              <RefoundUI />
+            )}
+          </div>
           <p className="mono wk-ui-label">Illustrative UI</p>
         </div>
       </div>
