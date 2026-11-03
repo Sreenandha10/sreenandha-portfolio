@@ -30,7 +30,7 @@ export default function About() {
           </p>
           <div className="about-btns rv" style={{ ["--i" as string]: 3 }}>
             <a className="btn btn-primary" href={PROFILE.resume} download>
-              Résumé <span aria-hidden="true">↓</span>
+              Resume <span aria-hidden="true">↓</span>
             </a>
             <a className="btn btn-ghost" href={PROFILE.github} target="_blank" rel="noopener noreferrer">
               GitHub <span aria-hidden="true">↗</span>
@@ -61,7 +61,7 @@ export default function About() {
             <blockquote>
               “Currently building a real-world MERN project — authentication, API development, database management and image uploads.”
             </blockquote>
-            <figcaption className="mono">From my résumé</figcaption>
+            <figcaption className="mono">From my resume</figcaption>
           </figure>
         </div>
       </div>
