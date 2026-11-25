@@ -4,73 +4,6 @@ import { useState } from "react";
 import { PROJECTS, type Project } from "@/lib/data";
 import TechLogo from "@/components/ui/TechLogo";
 
-function JobsUI() {
-  return (
-    <div className="ui ui-jobs" aria-hidden="true">
-      <div className="ui-bar">
-        <i /><i /><i />
-        <span className="mono">Job recommendations</span>
-      </div>
-      <div className="ui-jobs-body">
-        <div className="ui-side">
-          <span className="mono">Profile</span>
-          <div className="ui-avatar" />
-          <b style={{ width: "70%" }} />
-          <b style={{ width: "48%" }} />
-          <span className="mono" style={{ marginTop: 10 }}>Skills</span>
-          <div className="ui-pills"><i /><i /><i /><i /><i /></div>
-        </div>
-        <div className="ui-list">
-          <span className="mono">Recommended</span>
-          {[86, 72, 61, 44].map((w, i) => (
-            <div className="ui-row" key={i} style={{ ["--d" as string]: `${i * 120}ms` }}>
-              <div className="ui-dot" />
-              <div className="ui-lines">
-                <b style={{ width: `${70 - i * 8}%` }} />
-                <b style={{ width: `${46 - i * 4}%`, opacity: 0.6 }} />
-              </div>
-              <div className="ui-match"><u style={{ width: `${w}%` }} /></div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function VoiceUI() {
-  const bars = (n: number, seed: number) =>
-    Array.from({ length: n }, (_, i) => 18 + Math.abs(Math.sin(i * 0.7 + seed) * 62) + ((i * 7 + seed * 3) % 11));
-  return (
-    <div className="ui ui-voice" aria-hidden="true">
-      <div className="ui-bar">
-        <i /><i /><i />
-        <span className="mono">Speech generation</span>
-      </div>
-      <div className="ui-voice-body">
-        <div className="ui-wave-card">
-          <span className="mono">Reference voice</span>
-          <div className="ui-wave">
-            {bars(34, 1).map((h, i) => (
-              <u key={i} style={{ height: `${h}%`, ["--d" as string]: `${(i % 9) * 90}ms` }} />
-            ))}
-          </div>
-        </div>
-        <div className="ui-arrow mono">XTTS-v2 ↓</div>
-        <div className="ui-wave-card ink">
-          <div className="ui-play"><svg width="12" height="12" viewBox="0 0 16 16"><path d="M4.5 2.6v10.8a.6.6 0 0 0 .9.5l8.6-5.4a.6.6 0 0 0 0-1L5.4 2.1a.6.6 0 0 0-.9.5z" fill="currentColor" /></svg></div>
-          <div className="ui-wave">
-            {bars(34, 4).map((h, i) => (
-              <u key={i} style={{ height: `${h}%`, ["--d" as string]: `${(i % 7) * 110}ms` }} />
-            ))}
-          </div>
-          <span className="mono">Generated speech</span>
-        </div>
-      </div>
-    </div>
-  );
-}
-
 function RefoundUI() {
   const items = [
     { name: "Black Backpack", category: "Accessories", status: "Lost", date: "Today" },
@@ -213,6 +146,78 @@ function RefoundUI() {
   );
 }
 
+function VoiceUI() {
+  const bars = (n: number, seed: number) =>
+    Array.from({ length: n }, (_, i) => 18 + Math.abs(Math.sin(i * 0.7 + seed) * 62) + ((i * 7 + seed * 3) % 11));
+  return (
+    <div className="ui ui-voice" aria-hidden="true">
+      <div className="ui-bar">
+        <i /><i /><i />
+        <span className="mono">Speech generation</span>
+      </div>
+      <div className="ui-voice-body">
+        <div className="ui-wave-card">
+          <span className="mono">Reference voice</span>
+          <div className="ui-wave">
+            {bars(34, 1).map((h, i) => (
+              <u key={i} style={{ height: `${h}%`, ["--d" as string]: `${(i % 9) * 90}ms` }} />
+            ))}
+          </div>
+        </div>
+        <div className="ui-arrow mono">XTTS-v2 ↓</div>
+        <div className="ui-wave-card ink">
+          <div className="ui-play"><svg width="12" height="12" viewBox="0 0 16 16"><path d="M4.5 2.6v10.8a.6.6 0 0 0 .9.5l8.6-5.4a.6.6 0 0 0 0-1L5.4 2.1a.6.6 0 0 0-.9.5z" fill="currentColor" /></svg></div>
+          <div className="ui-wave">
+            {bars(34, 4).map((h, i) => (
+              <u key={i} style={{ height: `${h}%`, ["--d" as string]: `${(i % 7) * 110}ms` }} />
+            ))}
+          </div>
+          <span className="mono">Generated speech</span>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+
+function JobsUI() {
+  return (
+    <div className="ui ui-jobs" aria-hidden="true">
+      <div className="ui-bar">
+        <i /><i /><i />
+        <span className="mono">Job recommendations</span>
+      </div>
+      <div className="ui-jobs-body">
+        <div className="ui-side">
+          <span className="mono">Profile</span>
+          <div className="ui-avatar" />
+          <b style={{ width: "70%" }} />
+          <b style={{ width: "48%" }} />
+          <span className="mono" style={{ marginTop: 10 }}>Skills</span>
+          <div className="ui-pills"><i /><i /><i /><i /><i /></div>
+        </div>
+        <div className="ui-list">
+          <span className="mono">Recommended</span>
+          {[86, 72, 61, 44].map((w, i) => (
+            <div className="ui-row" key={i} style={{ ["--d" as string]: `${i * 120}ms` }}>
+              <div className="ui-dot" />
+              <div className="ui-lines">
+                <b style={{ width: `${70 - i * 8}%` }} />
+                <b style={{ width: `${46 - i * 4}%`, opacity: 0.6 }} />
+              </div>
+              <div className="ui-match"><u style={{ width: `${w}%` }} /></div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+
+
+
+
 function Panel({ p, open, onOpen, n }: { p: Project; open: boolean; onOpen: () => void; n: number }) {
   return (
     <article
@@ -248,11 +253,20 @@ function Panel({ p, open, onOpen, n }: { p: Project; open: boolean; onOpen: () =
               </li>
             ))}
           </ul>
-          {p.github && (
-            <a className="btn btn-primary" href={p.github} target="_blank" rel="noopener noreferrer">
-              View on GitHub <span aria-hidden="true">↗</span>
-            </a>
-          )}
+          {(p.live || p.github) && (
+  <div className="wk-actions">
+    {p.live && (
+      <a className="btn btn-primary" href={p.live} target="_blank" rel="noopener noreferrer">
+        View project <span aria-hidden="true">↗</span>
+      </a>
+    )}
+    {p.github && (
+      <a className="btn btn-ghost" href={p.github} target="_blank" rel="noopener noreferrer">
+        GitHub <span aria-hidden="true">↗</span>
+      </a>
+    )}
+  </div>
+)}
         </div>
         <div className="wk-visual">
           <div className="wk-ui">
@@ -296,7 +310,7 @@ export default function Work() {
 }
 
 const css = `
-.wk-track{margin-top:56px;display:flex;gap:10px;height:min(78svh,600px);container-type:inline-size}
+.wk-track{margin-top:56px;display:flex;gap:10px;height:min(98svh,700px);container-type:inline-size}
 .wk-panel{position:relative;flex:1 1 0;min-width:0;border-radius:28px;background:var(--card);box-shadow:inset 0 0 0 1px var(--line);overflow:hidden;transition:flex .85s var(--ease),box-shadow .6s var(--ease)}
 .wk-panel.is-open{flex:8 1 0;box-shadow:inset 0 0 0 1px var(--line),0 40px 80px -50px rgba(13,13,13,.4)}
 .wk-spine{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:26px 0 24px;width:100%;opacity:1;transition:opacity .45s var(--ease),background .4s var(--ease)}

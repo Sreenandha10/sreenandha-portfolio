@@ -159,47 +159,12 @@ export type Project = {
   features: string[];
   tech: string[];
   github?: string;
+  live?: string; // deployed project URL
   ui: "jobs" | "voice" | "refound";
 };
 
 export const PROJECTS: Project[] = [
-  {
-    id: "refugee",
-    index: "01",
-    title: "Refugee Resettlement and Integration System",
-    kicker: "Full-stack platform · Machine Learning",
-    description:
-      "Developed a full-stack platform with skill-based job recommendations; integrated MySQL and optimized modules through testing and debugging.",
-    features: [
-      "Full-stack platform",
-      "Skill-based job recommendations",
-      "MySQL integration",
-      "Modules optimized through testing",
-      "Debugging",
-      "Machine Learning",
-    ],
-    tech: ["HTML5", "CSS3", "Flask", "Node.js", "MySQL", "Machine Learning"],
-    ui: "jobs",
-  },
-  {
-    id: "voice",
-    index: "02",
-    title: "Voice Cloning System",
-    kicker: "Deep Learning Project",
-    description:
-      "Developed an AI-powered voice cloning application integrating XTTS-v2 with Flask for speech generation from cloned voices. Implemented audio preprocessing and performance optimization to improve speech-generation reliability.",
-    features: [
-      "AI-powered voice cloning",
-      "XTTS-v2 integrated with Flask",
-      "Speech from cloned voices",
-      "Audio preprocessing",
-      "Performance optimization",
-      "Reliable speech generation",
-    ],
-    tech: ["Python", "Flask", "PyTorch", "XTTS-v2", "MySQL"],
-    ui: "voice",
-  },
-   {
+{
     id: "refound",
     index: "03",
     title: "Refound",
@@ -224,7 +189,53 @@ export const PROJECTS: Project[] = [
       "Axios",
     ],
     ui: "refound",
+    github: "https://github.com/Sreenandha10/Refound_backend",
+    live: "https://refound-frontend.vercel.app/",
   },
+
+  {
+    id: "voice",
+    index: "02",
+    title: "Voice Cloning System",
+    kicker: "Deep Learning Project",
+    description:
+      "Developed an AI-powered voice cloning application integrating XTTS-v2 with Flask for speech generation from cloned voices. Implemented audio preprocessing and performance optimization to improve speech-generation reliability.",
+    features: [
+      "AI-powered voice cloning",
+      "XTTS-v2 integrated with Flask",
+      "Speech from cloned voices",
+      "Audio preprocessing",
+      "Performance optimization",
+      "Reliable speech generation",
+    ],
+    tech: ["Python", "Flask", "PyTorch", "XTTS-v2", "MySQL"],
+    ui: "voice",
+    github: "https://github.com/Sreenandha10/VOICE_CLONE_AI",
+    // live: "https://your-refugee-app.vercel.app",
+  },
+
+  {
+    id: "refugee",
+    index: "01",
+    title: "Refugee Resettlement and Integration System",
+    kicker: "Full-stack platform · Machine Learning",
+    description:
+      "Developed a full-stack platform with skill-based job recommendations; integrated MySQL and optimized modules through testing and debugging.",
+    features: [
+      "Full-stack platform",
+      "Skill-based job recommendations",
+      "MySQL integration",
+      "Modules optimized through testing",
+      "Debugging",
+      "Machine Learning",
+    ],
+    tech: ["HTML5", "CSS3", "Flask", "Node.js", "MySQL", "Machine Learning"],
+    ui: "jobs",
+    github: "https://github.com/Sreenandha10/",
+    // live: "https://your-refugee-app.vercel.app",
+  },
+  
+  
 ];
 
 /* Derived: which projects use each skill (matched against project tech) */
@@ -248,12 +259,53 @@ export const SKILLS: Skill[] = (() => {
 /* Certifications                                                      */
 /* ------------------------------------------------------------------ */
 
+
 export const CERTIFICATIONS = [
-  { title: "MERN Stack Development", issuer: "Luminar Technolab", note: "Ongoing" },
-  { title: "Introduction to Data Analytics", issuer: "IBM (Coursera)", note: "" },
-  { title: "Explore Machine Learning Using Python", issuer: "Infosys Springboard", note: "" },
-  { title: "Cyber Forensics Add-on Course", issuer: "MIBIZ Cyber Forensics Laboratory", note: "" },
+  {
+    title: "MERN Stack Development",
+    issuer: "Luminar Technolab",
+    note: "Ongoing",
+    certificate: "",
+  },
+  {
+    title: "Introduction to Data Analytics",
+    issuer: "IBM (Coursera)",
+    note: "",
+    certificate: "/certificates/ibm-data-analytics.pdf",
+  },
+  {
+    title: "Explore Machine Learning Using Python",
+    issuer: "Infosys Springboard",
+    note: "",
+    certificate: "/certificates/infosys-ml.pdf",
+  },
+  {
+    title: "Research Paper Presentation – ICRCET 2026",
+    issuer: "IFERP Academy",
+    note: "",
+    certificate: "/certificates/icrcet-2026.pdf",
+},
+   {
+    title: "Python Intern",
+    issuer: "Quest Pvt.Ltd",
+    note: "",
+    certificate: "/certificates/python-internship.pdf",
+  },
+   {
+    title: "Python Flask Intern",
+    issuer: "Crudops Pvt.Ltd",
+    note: "",
+    certificate: "/certificates/flask-internship.pdf",
+  },
+   
+  {
+    title: "Cyber Forensics Add-on Course",
+    issuer: "MIBIZ Cyber Forensics Laboratory",
+    note: "",
+    certificate: "/certificates/cyber-forensics.pdf",
+  },
 ];
+
 
 /* ------------------------------------------------------------------ */
 /* Experience + education (chronological)                              */
